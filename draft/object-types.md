@@ -1,6 +1,6 @@
 # Object Types
 
-Source code:
+## Source code
 
 ```ts
 type A = string;
@@ -19,13 +19,15 @@ type B = {
 };
 ```
 
-Tokens
+## Tokens
 
 For this source code:
 
 ```ts
 type A = string;
 ```
+
+It generates these tokens
 
 ```ts
 {
@@ -45,6 +47,39 @@ type A = string;
 {
   token: Token.Identifier;
   text: string;
+}
+
+{
+  token: Token.Semicolon;
+}
+```
+
+For this source code:
+
+```ts
+type B = number;
+```
+
+It generates these tokens
+
+```ts
+{
+  token: Token.Type;
+  text: type;
+}
+
+{
+  token: Token.Identifier;
+  text: B;
+}
+
+{
+  token: Token.Equals;
+}
+
+{
+  token: Token.Identifier;
+  text: number;
 }
 
 {
