@@ -30,28 +30,26 @@ type A = string;
 It generates these tokens
 
 ```ts
-{
-  token: Token.Type;
-  text: type;
-}
-
-{
-  token: Token.Identifier;
-  text: A;
-}
-
-{
-  token: Token.Equals;
-}
-
-{
-  token: Token.Identifier;
-  text: string;
-}
-
-{
-  token: Token.Semicolon;
-}
+[
+  {
+    token: Token.Type;
+    text: type;
+  },
+  {
+    token: Token.Identifier;
+    text: A;
+  },
+  {
+    token: Token.Equals;
+  },
+  {
+    token: Token.Identifier;
+    text: string;
+  },
+  {
+    token: Token.Semicolon;
+  }
+]
 ```
 
 For this source code:
@@ -63,26 +61,88 @@ type B = number;
 It generates these tokens
 
 ```ts
-{
-  token: Token.Type;
-  text: type;
-}
+[
+  {
+    token: Token.Type;
+    text: type;
+  },
+  {
+    token: Token.Identifier;
+    text: B;
+  },
+  {
+    token: Token.Equals;
+  },
+  {
+    token: Token.Identifier;
+    text: number;
+  },
+  {
+    token: Token.Semicolon;
+  }
+]
+```
 
-{
-  token: Token.Identifier;
-  text: B;
-}
+For this source code:
 
-{
-  token: Token.Equals;
-}
+```ts
+type C = {
+  a: string;
+  b: number;
+};
+```
 
-{
-  token: Token.Identifier;
-  text: number;
-}
+It generates these tokens
 
-{
-  token: Token.Semicolon;
-}
+```ts
+[
+  {
+    token: Token.Type;
+    text: type;
+  },
+  {
+    token: Token.Identifier;
+    text: C;
+  },
+  {
+    token: Token.Equals;
+  },
+  {
+    token: Token.OpenBrace;
+  },
+  {
+    token: Token.Identifier;
+    text: a;
+  },
+  {
+    token: Token.Colon;
+  },
+  {
+    token: Token.Identifier;
+    text: string;
+  },
+  {
+    token: Token.Semicolon;
+  }
+  {
+    token: Token.Identifier;
+    text: b;
+  },
+  {
+    token: Token.Colon;
+  },
+  {
+    token: Token.Identifier;
+    text: number;
+  },
+  {
+    token: Token.Semicolon;
+  },
+  {
+    token: Token.CloseBrace;
+  },
+  {
+    token: Token.Semicolon;
+  }
+]
 ```
