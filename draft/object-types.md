@@ -10,7 +10,7 @@ type C = {
   b: number;
 };
 
-type B = {
+type D = {
   a: string;
   b: number;
   c: A;
@@ -134,6 +134,115 @@ It generates these tokens
   {
     token: Token.Identifier;
     text: number;
+  },
+  {
+    token: Token.Semicolon;
+  },
+  {
+    token: Token.CloseBrace;
+  },
+  {
+    token: Token.Semicolon;
+  }
+]
+```
+
+For this source code:
+
+```ts
+type D = {
+  a: string;
+  b: number;
+  c: A;
+  d: B;
+  e: C;
+};
+```
+
+It generates these tokens
+
+```ts
+[
+  {
+    token: Token.Type;
+    text: type;
+  },
+  {
+    token: Token.Identifier;
+    text: D;
+  },
+  {
+    token: Token.Equals;
+  },
+  {
+    token: Token.OpenBrace;
+  },
+  {
+    token: Token.Identifier;
+    text: a;
+  },
+  {
+    token: Token.Colon;
+  },
+  {
+    token: Token.Identifier;
+    text: string;
+  },
+  {
+    token: Token.Semicolon;
+  },
+  {
+    token: Token.Identifier;
+    text: b;
+  },
+  {
+    token: Token.Colon;
+  },
+  {
+    token: Token.Identifier;
+    text: number;
+  },
+  {
+    token: Token.Semicolon;
+  },
+  {
+    token: Token.Identifier;
+    text: c;
+  },
+  {
+    token: Token.Colon;
+  },
+  {
+    token: Token.Identifier;
+    text: A;
+  },
+  {
+    token: Token.Semicolon;
+  },
+  {
+    token: Token.Identifier;
+    text: d;
+  },
+  {
+    token: Token.Colon;
+  },
+  {
+    token: Token.Identifier;
+    text: B;
+  },
+  {
+    token: Token.Semicolon;
+  },
+  {
+    token: Token.Identifier;
+    text: e;
+  },
+  {
+    token: Token.Colon;
+  },
+  {
+    token: Token.Identifier;
+    text: C;
   },
   {
     token: Token.Semicolon;
