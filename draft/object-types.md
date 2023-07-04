@@ -257,3 +257,14 @@ It generates these tokens
   }
 ]
 ```
+
+## Lexer
+
+```ts
+case '{':
+  token = Token.OpenBrace;
+  break;
+case '}':
+  token = Token.CloseBrace;
+  break;
+```
