@@ -1,5 +1,7 @@
 # Object Types
 
+Looking at the tokens, the missing tokens are the open and close brace.
+
 ## Source code
 
 ```ts
