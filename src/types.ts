@@ -11,6 +11,8 @@ export enum Token {
   Colon = 'Colon',
   Whitespace = 'Whitespace',
   String = 'String',
+  OpenBrace = 'OpenBrace',
+  CloseBrace = 'CloseBrace',
   Unknown = 'Unknown',
   BOF = 'BOF',
   EOF = 'EOF',
