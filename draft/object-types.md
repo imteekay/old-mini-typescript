@@ -268,3 +268,69 @@ case '}':
   token = Token.CloseBrace;
   break;
 ```
+
+## Parser
+
+The `typename` can be:
+
+An `Identifier` with `text` "string" or "number"
+
+```ts
+{
+  kind: Node.TypeAlias;
+  name: string;
+  typename: {
+    kind: Node.Identifier;
+    text: string;
+    pos: number;
+  }
+}
+```
+
+A `TypeLiteral` with `members` which is a list of `PropertySignature`
+
+With `type` as an "string", "number":
+
+```ts
+{
+  kind: Node.TypeAlias;
+  name: string;
+  typename: {
+    kind: Node.TypeLiteral;
+    members: [
+      {
+        kind: Node.Identifier;
+        text: string;
+        pos: number;
+      },
+      {
+        kind: Node.Identifier;
+        text: number;
+        pos: number;
+      }
+    ]
+  }
+}
+```
+
+With `type` as "TypeReference":
+
+```ts
+{
+  kind: Node.TypeAlias;
+  name: string;
+  typename: {
+    kind: Node.TypeLiteral;
+    members: [
+      {
+        kind: Node.TypeReference;
+        typename: {
+          kind: Node.Identifier;
+          text: string;
+        };
+        pos: number;
+      }
+    ]
+  }
+}
+```
