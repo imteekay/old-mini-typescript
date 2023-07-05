@@ -334,3 +334,9 @@ With `type` as "TypeReference":
   }
 }
 ```
+
+## TypeScript source code
+
+- Parser
+  - `parsePropertyOrMethodSignature`: see `parseOptionalToken`
+  - `parseList` and `isListTerminator`: handling members for object type
