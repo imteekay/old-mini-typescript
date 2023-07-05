@@ -271,7 +271,7 @@ case '}':
 
 ## Parser
 
-The `typename` can be:
+The `typename` can be `Identifier` and `TypeLiteral`:
 
 An `Identifier` with `text` "string" or "number"
 
