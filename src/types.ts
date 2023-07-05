@@ -35,6 +35,7 @@ export enum Node {
   TypeAlias,
   StringLiteral,
   EmptyStatement,
+  TypeLiteral,
 }
 
 export type Error = {
@@ -92,6 +93,23 @@ export type TypeAlias = Location & {
   kind: Node.TypeAlias;
   name: Identifier;
   typename: Identifier;
+};
+
+type TypeReference = Location & {
+  name: Identifier;
+};
+
+type PropertySignature = Location & {
+  name: Identifier;
+  type: Identifier | TypeReference;
+};
+
+// Added it to member as it's possible to have other types of members. e.g. method signature
+type Member = PropertySignature;
+
+export type TypeLiteral = Location & {
+  kind: Node.TypeLiteral;
+  members: Member[];
 };
 
 export type EmptyStatement = {
